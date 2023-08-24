@@ -1,0 +1,328 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    position: relative;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #007592;
+    color: white;
+    padding: 20px;
+}
+nav>.leftIcons>a,
+nav>.rightIcons>a{
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+}
+nav>.leftIcons>a:hover,
+nav>.rightIcons>a:hover{
+    background-color: rgba(255, 255, 255, 0.527);
+    border-radius: 50%;
+}
+nav>.hidden,
+nav>.hidden{
+    opacity: 0;
+    z-index: -99;
+}
+nav>.logo{
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    user-select: none;
+    cursor: pointer;
+}
+
+.container{
+    padding: 100px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: 550px;
+}
+.container .menuItem a{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    color: #555555;
+}
+.container .menuItem a:hover{
+    background-color: #008fb3;
+    color: white;
+}
+.container .menuItem a>img{
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+.container .menuItem a>span{
+    font-weight: bold;
+    font-size: 16px;
+    color: inherit;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 77px;
+    background-color: #111;
+    color: white;
+}
+
+/* =========== TIMER ========== */
+.setTimer{
+    display: none;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+.setTimer>#editTimerCloseBtn{
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    user-select: none;
+}
+.setTimer>.setTimerContainer{
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.setTimer>.setTimerContainer>.setTimerInputs{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.setTimer>.setTimerContainer>.setTimerInputs>input{
+    flex: 1;
+    width: 100px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px;
+}
+.setTimer>.setTimerContainer>.setTimerBtns{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+}
+.setTimer>.setTimerContainer>.setTimerBtns>button{
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.setTimer>.setTimerContainer>.setTimerBtns>button#setTimer{
+    background-color: #00c900;
+    color: white;
+}
+.setTimer>.setTimerContainer>.setTimerBtns>button#clearTimer{
+    background-color: #c90000;
+    color: white;
+}
+
+.timerContainer{
+    min-height: 550px;
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.timerContainer>.timer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+}
+.timerContainer>.timerBtns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.timerContainer>.timerBtns>button{
+    border: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    border: 5px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.timerContainer>.timerBtns>button#editBtn{
+    background-color: #008fb3;
+}
+.timerContainer>.timerBtns>button#editBtn:hover{
+    background-color: #007592;
+}
+.timerContainer>.timerBtns>button#pauseBtn{
+    display: none;
+    width: 150px;
+    height: 150px;
+    background-color: #c96b00;
+}
+.timerContainer>.timerBtns>button#pauseBtn:hover{
+    background-color: #b86200;
+}
+.timerContainer>.timerBtns>button#startBtn{
+    width: 150px;
+    height: 150px;
+    background-color: #00c900;
+}
+.timerContainer>.timerBtns>button#startBtn:hover{
+    background-color: #00af00;
+}
+.timerContainer>.timerBtns>button#resetBtn{
+    background-color: #c90000;
+    cursor: no-drop;
+}
+.timerContainer>.timerBtns>button#resetBtn:hover{
+    background-color: #ad0000;
+}
+
+/* =========== STOPWATCH =========== */
+.stopwatch{
+    min-height: 550px;
+    padding: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.stopwatch>.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.stopwatch>.header>.mainTimer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+}
+.stopwatch>.header>.lapTimer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 60px;
+    color: #ff8800;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+}
+.stopwatch>.timerBtns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.stopwatch>.timerBtns>button{
+    border: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    border: 5px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.stopwatch>.timerBtns>button#splitBtn{
+    background-color: #008fb3;
+}
+.stopwatch>.timerBtns>button#splitBtn:hover{
+    background-color: #007592;
+}
+.stopwatch>.timerBtns>button#pauseBtn{
+    display: none;
+    width: 150px;
+    height: 150px;
+    background-color: #c96b00;
+}
+.stopwatch>.timerBtns>button#pauseBtn:hover{
+    background-color: #b86200;
+}
+.stopwatch>.timerBtns>button#startBtn{
+    width: 150px;
+    height: 150px;
+    background-color: #00c900;
+}
+.stopwatch>.timerBtns>button#startBtn:hover{
+    background-color: #00af00;
+}
+.stopwatch>.timerBtns>button#resetBtn{
+    background-color: #c90000;
+    cursor: no-drop;
+}
+.stopwatch>.timerBtns>button#resetBtn:hover{
+    background-color: #ad0000;
+}
+
+.stopwatch>.lapTimerLists{
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.stopwatch>.lapTimerLists>ul{
+    width: 100%;
+    padding: 20px;
+}
+.stopwatch>.lapTimerLists>ul>li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.stopwatch>.lapTimerLists>ul>li:first-child{
+    font-weight: bold;
+    font-size: 20px;
+}
+.stopwatch>.lapTimerLists>ul>li>span{
+    flex: 1;
+    text-align: center;
+}

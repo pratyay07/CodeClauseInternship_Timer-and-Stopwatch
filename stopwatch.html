@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="leftIcons"><a href="index.html"><</a></div>
+        <div class="logo">Stopwatch</div>
+        <div class="rightIcons hidden"><a href="">></a></div>
+    </nav>
+    <div class="stopwatch">
+        <div class="header">
+            <div class="mainTimer">
+                <span id="mainTimerHour">00</span> : 
+                <span id="mainTimerMinute">00</span> : 
+                <span id="mainTimerSecond">00</span> : 
+                <span id="mainTimerMilli">000</span>
+            </div>
+            <div class="lapTimer">
+                <span id="lapTimerHour">00</span> : 
+                <span id="lapTimerMinute">00</span> : 
+                <span id="lapTimerSecond">00</span> : 
+                <span id="lapTimerMilli">000</span>
+            </div>
+        </div>
+        <div class="timerBtns">
+            <button id="splitBtn">Split</button>
+            <button id="pauseBtn">Pause</button>
+            <button id="startBtn">Start</button>
+            <button id="resetBtn">Reset</button>
+        </div>
+        <div class="lapTimerLists">
+            <ul id="lapList">
+                <li>
+                    <span>S.NO.</span>
+                    <span>Interval</span>
+                    <span>Total Time</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <p>Copyright &copy; 2023 | Pratyay Singha Roy</p>
+    </footer>
+    <script src="stopwatch.js"></script>
+</body>
+</html>
